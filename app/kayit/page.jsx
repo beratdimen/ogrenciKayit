@@ -1,5 +1,7 @@
 "use client";
 
+import EvaluationForm from "../kayıt3/page";
+
 export default function Kayit() {
   return (
     <>
@@ -25,6 +27,7 @@ export default function Kayit() {
           <input type="text" />
         </label>
       </form>
+<EvaluationForm/>
     </>
   );
 }
