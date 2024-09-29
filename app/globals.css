@@ -48,4 +48,8 @@ h6 {
 form {
   display: flex;
   flex-direction: column;
+
+  select {
+    width: fit-content;
+  }
 }
