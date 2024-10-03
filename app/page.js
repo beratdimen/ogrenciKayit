@@ -1,5 +1,11 @@
+import PageThree from "@/components/pagethree";
 import Kayit from "./kayit/page";
 
 export default function Home() {
-  return <Kayit />;
+  return (
+    <div>
+      <Kayit />
+      <PageThree />
+    </div>
+  );
 }
