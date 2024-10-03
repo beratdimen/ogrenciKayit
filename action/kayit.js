@@ -1,44 +1,6 @@
 "use server";
 
 export async function KayitAction(values) {
-  // const formObj = Object.fromEntries(formData);
-  // console.log(formObj);
-
-  // const errors = {}
-
-  // if(!formObj.name){
-  //     errors.name = "İsim boş olamaz"
-  // }
-
-  // if(!formObj.surname){
-  //     errors.surname = "Soyad boş olamaz"
-  // }
-
-  // return {errors}
-
-  // const response = await fetch("localhost:3000/basvurular/ekle", {
-  //     method: "POST",
-  //     headers: {
-  //         "Content-type": "application/json"
-  //     },
-  //     body: JSON.stringify(formObj)
-  // })
-
-  // const fields = [
-  //     { key: "name", message: "İsim boş olamaz" },
-  //     { key: "surname", message: "Soyad boş olamaz" }
-  // ];
-
-  // const errors = {};
-
-  // fields.forEach(field => {
-  //     if (!formObj[field.key]) {
-  //         errors[field.key] = field.message;
-  //     }
-  // });
-
-  // return { errors };
-
   let errors = {};
   if (values.step == 1) {
     errors = {
@@ -47,27 +9,24 @@ export async function KayitAction(values) {
       phone: !values.phone ? "Telefon alanı boş olamaz" : null,
       tcno: !values.tcno ? "TCNO alanı boş olamaz" : null,
     };
-
-    for (const key in errors) {
-      if (Object.prototype.hasOwnProperty.call(errors, key)) {
-        const element = errors[key];
-        if (element) return { errors };
-      }
-    }
-  }
-  if (values.step == 2) {
+  } else if (values.step == 2) {
     errors = {
       gradeone: !values.gradeone ? "puan boş olamaz" : null,
       gradetwo: !values.gradetwo ? "not boş olamaz" : null,
       gradethere: !values.gradethere ? "birini seçiniz" : null,
     };
-
-    for (const key in errors) {
-      if (Object.prototype.hasOwnProperty.call(errors, key)) {
-        const element = errors[key];
-        if (element) return { errors };
-      }
+  } else if (values.step == 3) {
+    errors = {
+      donemEgitmeni: !values.donemEgitmeni ? "Dönem Eğitmeni boş olamaz" : null,
+      bolum: !values.bolum ? "Bölüm boş olamaz" : null,
+      sinif: !values.sinif ? "Sınıf alanı boş olamaz" : null,
+      ogrenciNo: !values.ogrenciNo ? "Öğrenci numarası alanı boş olamaz" : null,
+    };
+  }
+  for (const key in errors) {
+    if (Object.prototype.hasOwnProperty.call(errors, key)) {
+      const element = errors[key];
+      if (element) return { errors };
     }
   }
-  return { success: true };
 }

@@ -3,7 +3,7 @@ export default function SecondPage({ errorsState }) {
     <>
       <p>
         <label htmlFor="gradeone">
-        <p>mülakat puanı</p>
+          <p>mülakat puanı</p>
           <input
             type="number"
             name="gradeone"
@@ -37,11 +37,14 @@ export default function SecondPage({ errorsState }) {
             type="radio"
             name="gradethere"
             id="gradethere"
+            value={"evet"}
           />
           <label htmlFor="">Evet</label>
-          <input type="radio"
-             name="gradethere"
-             id="gradethere"
+          <input
+            type="radio"
+            name="gradethere"
+            id="gradethere"
+            value={"hayır"}
           />
           <label htmlFor="">Hayır</label>
         </label>
