@@ -3,11 +3,12 @@ export default function SecondPage({ errorsState }) {
     <>
       <p>
         <label htmlFor="gradeone">
+        <p>mülakat puanı</p>
           <input
-            type="text"
+            type="number"
             name="gradeone"
             id="gradeone"
-            placeholder="grade1"
+            placeholder="ön sınav puanı"
           />
         </label>
         <br />
@@ -17,11 +18,12 @@ export default function SecondPage({ errorsState }) {
       </p>
       <p>
         <label htmlFor="gradetwo">
-          <input
+          <p>mülakat notları</p>
+          <textarea
             type="text"
             name="gradetwo"
             id="gradetwo"
-            placeholder="grade2"
+            placeholder="mülakat notları"
           />
         </label>
         {errorsState?.errors?.gradetwo && (
@@ -30,12 +32,18 @@ export default function SecondPage({ errorsState }) {
       </p>
       <p>
         <label htmlFor="gradethere">
+          <p>mülakat puanı mülakattan geçtimi</p>
           <input
-            type="number"
+            type="radio"
             name="gradethere"
             id="gradethere"
-            placeholder="telefon numaranız"
           />
+          <label htmlFor="">Evet</label>
+          <input type="radio"
+             name="gradethere"
+             id="gradethere"
+          />
+          <label htmlFor="">Hayır</label>
         </label>
         {errorsState?.errors?.gradethere && (
           <p>{errorsState?.errors?.gradethere}</p>

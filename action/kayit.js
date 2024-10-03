@@ -57,9 +57,9 @@ export async function KayitAction(values) {
   }
   if (values.step == 2) {
     errors = {
-      gradeone: !values.gradeone ? "İsim boş olamaz" : null,
-      gradetwo: !values.gradetwo ? "Soyad boş olamaz" : null,
-      gradethere: !values.gradethere ? "Telefon alanı boş olamaz" : null,
+      gradeone: !values.gradeone ? "puan boş olamaz" : null,
+      gradetwo: !values.gradetwo ? "not boş olamaz" : null,
+      gradethere: !values.gradethere ? "birini seçiniz" : null,
     };
 
     for (const key in errors) {
