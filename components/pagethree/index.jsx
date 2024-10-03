@@ -2,10 +2,8 @@
 
 export default function PageThree({ errorsState }) {
   return (
-    <>
-      <label htmlFor="taskCompleted">
-        <p>Ödevi Tamamladı mı?</p>
-    <>
+    <div>
+      <p>Ödevi Tamamladı mı?</p>
       <label htmlFor="taskCompleted">
         <p>Ödevi Tamamladı mı?</p>
         <br />
@@ -52,9 +50,7 @@ export default function PageThree({ errorsState }) {
         Hayır
       </label>
       <br />
-      {errorsState?.errors?.onTime && (
-        <p>{errorsState?.errors?.onTime}</p>
-      )}
+      {errorsState?.errors?.onTime && <p>{errorsState?.errors?.onTime}</p>}
 
       <label htmlFor="focused">
         <p> 5-) Öğrenci ders esnasında sadece derse odaklandı mı?</p>
@@ -65,9 +61,7 @@ export default function PageThree({ errorsState }) {
         Hayır
       </label>
       <br />
-      {errorsState?.errors?.focused && (
-        <p>{errorsState?.errors?.focused}</p>
-      )}
+      {errorsState?.errors?.focused && <p>{errorsState?.errors?.focused}</p>}
 
       <label htmlFor="deservesCertificate">
         <p>Öğrenci sertifika almayı hak ediyor mu?</p>
@@ -78,6 +72,6 @@ export default function PageThree({ errorsState }) {
         Hayır
       </label>
       <br />
-    </>
+    </div>
   );
 }
