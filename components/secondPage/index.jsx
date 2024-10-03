@@ -49,6 +49,7 @@ export default function SecondPage({ errorsState }) {
           <p>{errorsState?.errors?.gradethere}</p>
         )}
       </p>
+      <p>deneme</p>
     </>
   );
 }
