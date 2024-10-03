@@ -1,52 +1,69 @@
 "use client";
 import { useState } from "react";
 
-   
-export default function EvaluationForm() {
-    const [answers, setAnswers] = useState({
-      taskCompleted: "",
-      attendedClass: "",
-      developedProject: "",
-      onTime: "",
-      focused: "",
-      deservesCertificate: "",
+export default function EvaluationForm({
+  errorState,
+  setErrorState,
+  page,
+  setPage,
+}) {
+  const [answers, setAnswers] = useState({
+    taskCompleted: "",
+    attendedClass: "",
+    developedProject: "",
+    onTime: "",
+    focused: "",
+    deservesCertificate: "",
+  });
+
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isCertified, setIsCertified] = useState(false);
+
+  const handleChange = (e) => {
+    setAnswers({
+      ...answers,
+      [e.target.name]: e.target.value,
     });
-  
-    const [formSubmitted, setFormSubmitted] = useState(false);
-    const [isCertified, setIsCertified] = useState(false);
-  
-    const handleChange = (e) => {
-      setAnswers({
-        ...answers,
-        [e.target.name]: e.target.value,
-      });
-    };
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      if (answers.deservesCertificate === "evet") {
-        setIsCertified(true);
-      }
-      setFormSubmitted(true);
-    };
-  
-    if (formSubmitted) {
-      return (
-        <div>
-          {isCertified ? (
-            <h2>Sertifika hazırlanıyor...</h2>
-          ) : (
-            <h2>İşlem tamamlandı.</h2>
-          )}
-        </div>
-      );
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (answers.deservesCertificate === "evet") {
+      setIsCertified(true);
     }
-  
+    setFormSubmitted(true);
+  };
+
+  if (formSubmitted) {
     return (
-        
-    <form onSubmit={handleSubmit}>
+      <div>
+        {isCertified ? (
+          <h2>Sertifika hazırlanıyor...</h2>
+        ) : (
+          <h2>İşlem tamamlandı.</h2>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      action={async (formData) => {
+        const formObj = Object.fromEntries(formData);
+        const response = await KayitAction(formObj);
+
+        if (response?.errors) {
+          setErrorState({
+            errors: response?.errors,
+          });
+          return;
+        }
+        setPage((prev) => prev + 1);
+      }}
+    >
       <h1>Öğrenci Değerlendirme Formu</h1>
-      
+
       <label>
         1- Ödevini tamamladı mı?
         <br />

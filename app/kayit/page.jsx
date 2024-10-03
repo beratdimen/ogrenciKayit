@@ -1,46 +1,45 @@
 "use client";
 import { KayitAction } from "@/action/kayit";
+import { useState } from "react";
+import FirstPage from "@/components/firstPage";
+import SecondPage from "@/components/secondPage";
 import { useFormState } from "react-dom";
 
-import EvaluationForm from "../kayıt3/page";
-
 export default function Kayit() {
+  const [errorsState, setErrorsState] = useState({});
+  const [step, setStep] = useState(1);
   const [state, action] = useFormState(KayitAction, null);
+
   return (
     <>
       <h1>Kayıt Sayfası</h1>
-      <form action={action}>
-        <label htmlFor="">
-          <input type="text" name="name" placeholder="isim" />
-        </label>
-        {state?.errors?.name && <p>{state?.errors?.name}</p>}
+      <form
+        action={async (formData) => {
+          console.log(formData);
+          const formObj = Object.fromEntries(formData);
+          console.log(formObj);
 
-        <label htmlFor="">
-          <input type="text" name="surname" placeholder="soy isim" />
-        </label>
-        {state?.errors?.surname && <p>{state?.errors?.surname}</p>}
+          setErrorsState({})
 
-        <label htmlFor="">
-          <input type="date" name="birthDate" placeholder="doğum tarihi" />
-        </label>
-        {state?.errors?.birthDate && <p>{state?.errors?.birthDate}</p>}
+          const response = await KayitAction(formObj);
+          console.log(response);
 
-        <label htmlFor="">
-          <input type="number" name="tcno" placeholder="tc" />
-        </label>
-        {state?.errors?.tcno && <p>{state?.errors?.tcno}</p>}
+          if (response?.errors) {
+            setErrorsState({
+              errors: response?.errors,
+            });
+            return;
+          }
 
-        <select name="cinsiyet" id="cinsiyet">
-          <option value=""></option>
-          <option value="Erkek">Erkek</option>
-          <option value="Kadın">Kadın</option>
-          <option value="Diger">Diğer</option>
-        </select>
-        {state?.errors?.cinsiyet && <p>{state?.errors?.cinsiyet}</p>}
-        <button>GO NEXT PAGE</button>
-        
+          setStep((prev) => prev + 1);
+        }}
+      >
+        <input type="hidden" name="step" value={step} />
+        {step === 1 && <FirstPage errorsState={errorsState} />}
+        {step === 2 && <SecondPage errorsState={errorsState} />}
+
+        <button>{step === 4 ? "Kaydet" : "İlerle"}</button>
       </form>
-<EvaluationForm/>
     </>
   );
 }
