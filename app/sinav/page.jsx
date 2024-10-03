@@ -13,7 +13,7 @@ export default function Sinav() {
         <textarea name="sinavnot" id="sinavnot" placeholder="mülakat notları"></textarea>
       </label>
       <label htmlFor="">
-        <p>mülakat puanı mülakattan geçtimi</p>
+        <p>Mülakat puanı mülakattan geçti'mi ?</p>
         <input name="evet" id="evet" type="radio" />
         <label htmlFor="">Evet</label>
         <input name="hayır" id="hayır" type="radio" />
