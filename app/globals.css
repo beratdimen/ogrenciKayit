@@ -44,10 +44,39 @@ h6 {
 #__next {
   isolation: isolate;
 }
-
+h1 {
+  text-align: center;
+}
 form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
+  .firstPage {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    padding: 24px 48px;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 8px;
+    width: 100%;
+  }
+
+  button {
+    margin-top: 16px;
+    border: none;
+    background-color: transparent;
+    width: fit-content;
+    padding: 8px 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+  }
 
   select {
     width: fit-content;

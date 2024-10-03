@@ -2,7 +2,7 @@
 
 export default function FirstPage({ errorsState }) {
   return (
-    <>
+    <div className="firstPage">
       <p>
         <label htmlFor="name">
           <input type="text" name="name" id="name" placeholder="adınız" />
@@ -53,6 +53,6 @@ export default function FirstPage({ errorsState }) {
           />
         </label>
       </p>
-    </>
+    </div>
   );
 }
