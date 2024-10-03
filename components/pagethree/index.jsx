@@ -5,6 +5,9 @@ export default function PageThree({ errorsState }) {
     <>
       <label htmlFor="taskCompleted">
         <p>Ödevi Tamamladı mı?</p>
+    <>
+      <label htmlFor="taskCompleted">
+        <p>Ödevi Tamamladı mı?</p>
         <br />
         <input type="radio" name="taskCompleted" value={"evet"} />
         Evet
@@ -23,9 +26,12 @@ export default function PageThree({ errorsState }) {
         Hayır
       </label>
       <br />
+      {errorsState?.errors?.attendedClass && (
+        <p>{errorsState?.errors?.attendedClass}</p>
+      )}
 
       <label htmlFor="developedProject">
-        <p>3- Öğrenci eğitmenleri söylemediği halde proje geliştirdi mi?</p>
+        <p>Öğrenci eğitmenleri söylemediği halde proje geliştirdi mi?</p>
         <br />
         <input type="radio" name="developedProject" value={"evet"} />
         Evet
@@ -33,9 +39,12 @@ export default function PageThree({ errorsState }) {
         Hayır
       </label>
       <br />
+      {errorsState?.errors?.developedProject && (
+        <p>{errorsState?.errors?.developedProject}</p>
+      )}
 
       <label htmlFor="onTime">
-        <p> 4-) Öğrenci derse her zaman tam saatinde geldi mi?</p>
+        <p>Öğrenci derse her zaman tam saatinde geldi mi?</p>
         <br />
         <input type="radio" name="onTime" value={"evet"} />
         Evet
@@ -43,6 +52,9 @@ export default function PageThree({ errorsState }) {
         Hayır
       </label>
       <br />
+      {errorsState?.errors?.onTime && (
+        <p>{errorsState?.errors?.onTime}</p>
+      )}
 
       <label htmlFor="focused">
         <p> 5-) Öğrenci ders esnasında sadece derse odaklandı mı?</p>
@@ -53,9 +65,12 @@ export default function PageThree({ errorsState }) {
         Hayır
       </label>
       <br />
+      {errorsState?.errors?.focused && (
+        <p>{errorsState?.errors?.focused}</p>
+      )}
 
       <label htmlFor="deservesCertificate">
-        <p>6-) Öğrenci sertifika almayı hak ediyor mu?</p>
+        <p>Öğrenci sertifika almayı hak ediyor mu?</p>
         <br />
         <input type="radio" name="deservesCertificate" value={"evet"} />
         Evet

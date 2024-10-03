@@ -11,9 +11,27 @@ export async function KayitAction(values) {
     };
   } else if (values.step == 2) {
     errors = {
-      gradeone: !values.gradeone ? "puan boş olamaz" : null,
-      gradetwo: !values.gradetwo ? "not boş olamaz" : null,
-      gradethere: !values.gradethere ? "birini seçiniz" : null,
+      interviewscore: !values.interviewscore ? "puan boş olamaz" : null,
+      interviewnotes: !values.interviewnotes ? "not boş olamaz" : null,
+      successful: !values.successful ? "birini seçiniz" : null,
+    };
+
+    for (const key in errors) {
+      if (Object.prototype.hasOwnProperty.call(errors, key)) {
+        const element = errors[key];
+        if (element) return { errors };
+      }
+    }
+  }
+
+  if (values.step == 3) {
+    errors = {
+      taskCompleted: !values.taskCompleted ? "birini seçiniz" : null,
+      attendedClass: !values.attendedClass ? "birini seçiniz" : null,
+      developedProject: !values.developedProject ? "birini seçiniz" : null,
+      onTime: !values.onTime ? "birini seçiniz" : null,
+      focused: !values.focused ? "birini seçiniz" : null,
+      deservesCertificate: !values.deservesCertificate ? "birini seçiniz" : null,
     };
   } else if (values.step == 3) {
     errors = {
