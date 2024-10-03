@@ -3,9 +3,8 @@
 export default function PageThree({ errorsState }) {
   return (
     <div>
-      <p>Ödevi Tamamladı mı?</p>
       <label htmlFor="taskCompleted">
-        <p>Ödevi Tamamladı mı?</p>
+        <p>1-Ödevi Tamamladı mı?</p>
         <br />
         <input type="radio" name="taskCompleted" value={"evet"} />
         Evet
@@ -13,6 +12,9 @@ export default function PageThree({ errorsState }) {
         <input type="radio" name="taskCompleted" value={"hayır"} />
         Hayır
       </label>
+      {errorsState?.errors?.taskCompleted && (
+        <p>{errorsState?.errors?.taskCompleted}</p>
+      )}
       <br />
 
       <label htmlFor="attendedClass">

@@ -37,7 +37,7 @@ export default function Kayit() {
             return;
           }
           if (step == 2) {
-            if (formObj?.gradethere == "hayır") {
+            if (formObj?.successful == "hayır") {
               setStep(5);
             } else {
               setStep((prev) => prev + 1);

@@ -22,23 +22,23 @@ export async function KayitAction(values) {
         if (element) return { errors };
       }
     }
-  }
-
-  if (values.step == 3) {
-    errors = {
-      taskCompleted: !values.taskCompleted ? "birini seçiniz" : null,
-      attendedClass: !values.attendedClass ? "birini seçiniz" : null,
-      developedProject: !values.developedProject ? "birini seçiniz" : null,
-      onTime: !values.onTime ? "birini seçiniz" : null,
-      focused: !values.focused ? "birini seçiniz" : null,
-      deservesCertificate: !values.deservesCertificate ? "birini seçiniz" : null,
-    };
   } else if (values.step == 3) {
     errors = {
       donemEgitmeni: !values.donemEgitmeni ? "Dönem Eğitmeni boş olamaz" : null,
       bolum: !values.bolum ? "Bölüm boş olamaz" : null,
       sinif: !values.sinif ? "Sınıf alanı boş olamaz" : null,
       ogrenciNo: !values.ogrenciNo ? "Öğrenci numarası alanı boş olamaz" : null,
+    };
+  } else if (values.step == 4) {
+    errors = {
+      taskCompleted: !values.taskCompleted ? "birini seçiniz" : null,
+      attendedClass: !values.attendedClass ? "birini seçiniz" : null,
+      developedProject: !values.developedProject ? "birini seçiniz" : null,
+      onTime: !values.onTime ? "birini seçiniz" : null,
+      focused: !values.focused ? "birini seçiniz" : null,
+      deservesCertificate: !values.deservesCertificate
+        ? "birini seçiniz"
+        : null,
     };
   }
   for (const key in errors) {
