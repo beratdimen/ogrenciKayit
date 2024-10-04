@@ -2,8 +2,8 @@
 import { KayitAction } from "@/action/kayit";
 import { useEffect, useState } from "react";
 import FirstPage from "@/components/firstPage";
-import SecondPage from "@/components/secondPage";
 import { useFormState } from "react-dom";
+import SecondPage from "@/components/secondPage";
 import PageThree from "@/components/pagethree";
 import PageFourth from "@/components/fourthPage";
 
