@@ -3,14 +3,14 @@
 export default function FirstPage({ errorsState }) {
   return (
     <div className="firstPage">
-      <p>
+      <p> Adınız
         <label htmlFor="name">
           <input type="text" name="name" id="name" placeholder="adınız" />
         </label>
         <br />
-        {errorsState?.errors?.name && <p>{errorsState?.errors?.name}</p>}
+        {errorsState?.errors?.name && <p className="eror">{errorsState?.errors?.name}</p>}
       </p>
-      <p>
+      <p> Soyadınız
         <label htmlFor="surname">
           <input
             type="text"
@@ -19,9 +19,9 @@ export default function FirstPage({ errorsState }) {
             placeholder="soyadınız"
           />
         </label>
-        {errorsState?.errors?.surname && <p>{errorsState?.errors?.surname}</p>}
+        {errorsState?.errors?.surname && <p className="eror">{errorsState?.errors?.surname}</p>}
       </p>
-      <p>
+      <p> Telefon numaranız
         <label htmlFor="phone">
           <input
             type="number"
@@ -30,9 +30,9 @@ export default function FirstPage({ errorsState }) {
             placeholder="telefon numaranız"
           />
         </label>
-        {errorsState?.errors?.phone && <p>{errorsState?.errors?.phone}</p>}
+        {errorsState?.errors?.phone && <p className="eror">{errorsState?.errors?.phone}</p>}
       </p>
-      <p>
+      <p> TC numaranız
         <label htmlFor="tcno">
           <input
             type="number"
@@ -41,9 +41,9 @@ export default function FirstPage({ errorsState }) {
             placeholder="tc numaranız"
           />
         </label>
-        {errorsState?.errors?.tcno && <p>{errorsState?.errors?.tcno}</p>}
+        {errorsState?.errors?.tcno && <p className="eror">{errorsState?.errors?.tcno}</p>}
       </p>
-      <p>
+      <p> Doğum tarihiniz
         <label htmlFor="">
           <input
             type="date"

@@ -1,9 +1,9 @@
 "use client";
-
+import "../fourthPage/fourth.css"
 export default function PageFourth({ errorsState }) {
   return (
     <>
-      <p>
+      <p> Dönem eğitmeni
         <label htmlFor="donemEgitmeni">
           <input
             id="donemEgitmeni"
@@ -14,10 +14,10 @@ export default function PageFourth({ errorsState }) {
         </label>
         <br />
         {errorsState?.errors?.donemEgitmeni && (
-          <p>{errorsState?.errors?.donemEgitmeni}</p>
+          <p className="eror">{errorsState?.errors?.donemEgitmeni}</p>
         )}
       </p>
-      <p>
+      <p> Bölümünüzü giriniz
         <label htmlFor="bolum">
           <input
             type="text"
@@ -27,16 +27,16 @@ export default function PageFourth({ errorsState }) {
           />
         </label>
         <br />
-        {errorsState?.errors?.bolum && <p>{errorsState?.errors?.bolum}</p>}
+        {errorsState?.errors?.bolum && <p className="eror">{errorsState?.errors?.bolum}</p>}
       </p>
-      <p>
+      <p> Sınıf
         <label htmlFor="sinif">
           <input id="sinif" type="text" name="sinif" placeholder="sınıfı:" />
         </label>
         <br />
-        {errorsState?.errors?.sinif && <p>{errorsState?.errors?.sinif}</p>}
+        {errorsState?.errors?.sinif && <p className="eror">{errorsState?.errors?.sinif}</p>}
       </p>
-      <p>
+      <p> Öğrenci numarasını giriniz
         <label htmlFor="ogrenciNo">
           <input
             id="ogrenciNo"
@@ -47,7 +47,7 @@ export default function PageFourth({ errorsState }) {
         </label>
         <br />
         {errorsState?.errors?.ogrenciNo && (
-          <p>{errorsState?.errors?.ogrenciNo}</p>
+          <p className="eror">{errorsState?.errors?.ogrenciNo}</p>
         )}
       </p>
     </>

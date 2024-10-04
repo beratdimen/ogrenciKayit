@@ -4,7 +4,7 @@ export default function SecondPage({ errorsState }) {
   return (
     <>
       <div className="secondpage">
-        <p>
+        <p> Ön Sınav Puanı
           <label htmlFor="interviewscore">
             <input
               type="number"
@@ -15,10 +15,10 @@ export default function SecondPage({ errorsState }) {
           </label>
           <br />
           {errorsState?.errors?.interviewscore && (
-            <p>{errorsState?.errors?.interviewscore}</p>
+            <p className="eror">{errorsState?.errors?.interviewscore}</p>
           )}
         </p>
-        <p>
+        <p> Mülakat Notları
           <label htmlFor="interviewnotes">
             <textarea
               type="text"
@@ -28,7 +28,7 @@ export default function SecondPage({ errorsState }) {
             />
           </label>
           {errorsState?.errors?.interviewnotes && (
-            <p>{errorsState?.errors?.interviewnotes}</p>
+            <p className="eror">{errorsState?.errors?.interviewnotes}</p>
           )}
         </p>
         <p>
@@ -54,10 +54,10 @@ export default function SecondPage({ errorsState }) {
                 <p>Hayır</p>
               </div>
             </div>
-          </label>
-          {errorsState?.errors?.successful && (
-            <p>{errorsState?.errors?.successful}</p>
+            {errorsState?.errors?.successful && (
+            <p className="eror">{errorsState?.errors?.successful}</p>
           )}
+          </label>
         </p>
       </div>
     </>
