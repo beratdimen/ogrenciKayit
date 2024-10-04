@@ -18,7 +18,10 @@ export default function Kayit() {
   }, []);
   return (
     <>
-      <h1>Kayıt Sayfası</h1>
+      {step === 1 && <h1>Kişisel Bilgiler</h1>}
+      {step === 2 && <h1>Mülakat Bilgileri</h1>}
+      {step === 3 && <h1>Okuduğu Dönem Bilgileri</h1>}
+      {step === 4 && <h1>Katılım Bilgileri</h1>}
       <form
         action={async (formData) => {
           console.log(formData);
