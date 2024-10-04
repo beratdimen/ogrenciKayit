@@ -33,7 +33,7 @@ export default function SecondPage({ errorsState }) {
         </p>
         <p>
           <label className="radio" htmlFor="successful">
-            <p>Mülakat puanı mülakattan geçti'mi ?</p>
+            <p>Mülakat puanı mülakattan geçti&apos;mi?</p>
             <div className="input">
               <div className="bir">
                 <input
